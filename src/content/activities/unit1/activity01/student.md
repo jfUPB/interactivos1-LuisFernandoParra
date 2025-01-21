@@ -1,4 +1,4 @@
-# Mi solucion a la actividad
+
 
 ## Juguetes interactivos con inteligencia artificial
 
