@@ -13,4 +13,4 @@ function draw() {
 
 
 
-![Esto es una imagen de prueba](../../../../assets/testImg.png)
+![Esto es una imagen de prueba](../../../../assets/Actividad9.png)
