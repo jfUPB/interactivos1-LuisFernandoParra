@@ -1,4 +1,4 @@
-# Características del Micro:bit y funciones básicas en MicroPython  
+
 
 ## Características del Micro:bit – Entradas y Salidas  
 
