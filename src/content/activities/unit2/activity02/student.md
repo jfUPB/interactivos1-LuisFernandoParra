@@ -10,5 +10,6 @@ Evaluaré mi progreso completando al menos tres experimentos prácticos y un pro
 
 **Alcanzable:**  
 La meta es realista porque está alineada con los contenidos de la unidad y los recursos proporcionados en el curso. Además, puedo practicar con ejercicios y proyectos guiados.
+
 **Plazo:**  
 Dos semanas
