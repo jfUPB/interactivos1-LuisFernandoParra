@@ -1,4 +1,4 @@
-# Vectores de Prueba - Clase `bomba`
+# Vectores de Prueba 
 
 ---
 
