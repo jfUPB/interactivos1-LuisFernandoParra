@@ -159,9 +159,4 @@ Cadena enviada:
 
 ---
 
-## ✅ Conclusiones
 
-- El uso de UART con formato CSV permite una comunicación eficiente y legible.
-- `sleep(100)` regula la frecuencia y evita errores en la recepción.
-- La estructura con comas y saltos de línea permite descomponer fácilmente los datos.
-- Los botones y acelerómetro permiten controlar interactivamente otros sistemas, como visualizaciones en p5.js.
