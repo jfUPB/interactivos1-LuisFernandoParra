@@ -1,0 +1,1 @@
+Fue una unidad muy interesante en la cual aprendi bastante con menos actividades pero igual una gran cantidad de contenido recomendaria para la proxima disminuir un poco mas o el largor de actividades o la cantidad de las mismas ya que si uno se toma el tiempo de hacerlo a conciencia de verdad toma mucho tiempo
