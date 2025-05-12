@@ -3,73 +3,76 @@ https://openprocessing.org/sketch/create
 ### Codigo modificado:
 ```
 let serial;
-let x = 0;
-let y = 0;
-let buttonA = false;
-let buttonB = false;
+let deviceIsConnected = false;
+let posX = 100 / 2;
+let posY = 100 / 2;
+let dataBuffer = [];
 
 function setup() {
-  createCanvas(400, 400);
-  serial = new p5.SerialPort();
-  
-  // Lista de puertos disponibles en consola
-  serial.list();
-  
-  // Abre el puerto una vez lo selecciones desde la consola del navegador
-  serial.open('/dev/tty.usbmodemXXXX'); // Sustituye esto por tu puerto correcto
+  createCanvas(500, 500);
+  background(100);
 
-  serial.on('data', serialEvent);
-  serial.clear(); // Limpia el buffer
+  serial = createSerial();
+
+  let btnConectar = createButton("Connect to device");
+  btnConectar.position(10, 10);
+  btnConectar.mousePressed(() => {
+    if (!serial.opened()) {
+      serial.open("MicroPython", 115200);
+    } else {
+      serial.close();
+    }
+  });
 }
 
 function draw() {
-  background(220);
+  background(100);
 
-  // Representación visual de datos
-  fill(0);
-  textSize(16);
-  text(`x: ${x}`, 20, 40);
-  text(`y: ${y}`, 20, 70);
-  text(`Botón A: ${buttonA}`, 20, 100);
-  text(`Botón B: ${buttonB}`, 20, 130);
+  if (!serial.opened()) {
+    deviceIsConnected = false;
+  } else {
+    deviceIsConnected = true;
+    recibirDatosSerial();
+  }
 
-  // Dibujar un círculo que se mueve según acelerómetro
-  fill(100, 200, 255);
-  ellipse(map(x, -2048, 2048, 0, width), map(y, -2048, 2048, 0, height), 30);
+  fill(255);
+  circle(posX, posY, 20);
 }
 
-function serialEvent() {
-  while (serial.available() >= 10) {
-    let header = serial.read();
+function recibirDatosSerial() {
+  let cantidadDisponible = serial.availableBytes();
+  if (cantidadDisponible > 0) {
+    let bytesNuevos = serial.readBytes(cantidadDisponible);
+    dataBuffer = dataBuffer.concat(bytesNuevos);
+  }
 
-    if (header === 0xAA) {
-      let buffer = [];
-
-      // Leer los 8 bytes de datos (2h2B)
-      for (let i = 0; i < 8; i++) {
-        buffer.push(serial.read());
-      }
-
-      // Leer el checksum
-      let checksum = serial.read();
-
-      // Validar checksum
-      let sum = buffer.reduce((acc, val) => acc + val, 0) % 256;
-      if (sum === checksum) {
-        // Unpack de 2 enteros (16 bits) y 2 bytes
-        let xRaw = (buffer[0] << 8) | buffer[1];
-        let yRaw = (buffer[2] << 8) | buffer[3];
-
-        // Convertir de entero con signo (16 bits)
-        if (xRaw > 32767) xRaw -= 65536;
-        if (yRaw > 32767) yRaw -= 65536;
-
-        x = xRaw;
-        y = yRaw;
-        buttonA = buffer[4] === 1;
-        buttonB = buffer[5] === 1;
-      }
+  while (dataBuffer.length >= 8) {
+    if (dataBuffer[0] !== 0xAA) {
+      dataBuffer.shift(); // Descartar byte hasta hallar encabezado
+      continue;
     }
+
+    if (dataBuffer.length < 8) break;
+
+    let paquete = dataBuffer.slice(0, 8);
+    dataBuffer.splice(0, 8); // Eliminar paquete del buffer
+
+    let datos = paquete.slice(1, 7);
+    let checksumRecibido = paquete[7];
+    let checksumCalculado = datos.reduce((acc, val) => acc + val, 0) % 256;
+
+    if (checksumCalculado !== checksumRecibido) {
+      console.log("Error de checksum");
+      continue;
+    }
+
+    let arreglo = new Uint8Array(datos).buffer;
+    let visor = new DataView(arreglo);
+    posX = visor.getInt16(0) + width / 2;
+    posY = visor.getInt16(2) + height / 2;
   }
 }
+
 ```
+Link:
+https://editor.p5js.org/LuisFernandoParra/sketches/1gz3vy0is
