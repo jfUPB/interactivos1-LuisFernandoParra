@@ -2,7 +2,7 @@
 
 ## 1. Visualización en la app web
 
-![image]("../../../../assets/A.png")
+![image](../../../../assets/A.png)
 
 ---
 
