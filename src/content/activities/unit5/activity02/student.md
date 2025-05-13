@@ -8,6 +8,8 @@
 
 ## 2. ¿Esto sigue siendo ASCII?
 
+![image](../../../../assets/B.png)
+
 Sí, los datos que se observan aún están codificados en ASCII.  
 Si fueran binarios, el formato cambiaría considerablemente. Un posible desglose sería:
 
@@ -31,6 +33,8 @@ Si fueran binarios, el formato cambiaría considerablemente. Un posible desglose
 ---
 
 ## 4. Análisis de los bits enviados
+
+![image](../../../../assets/C.png)
 
 Actualmente se están transmitiendo **20 bits**, lo cual equivale a **10 bytes por segundo**, y se representa en formato hexadecimal como:
 
@@ -57,6 +61,7 @@ En este formato, el **primer byte** (debido al uso de big endian) es el que dete
 ---
 
 ## 6. Comparativa de binario vs ASCII
+![image](../../../../assets/D.png)
 
 ### Ventajas del uso de binario:
 - Es el método más adecuado para la comunicación entre máquinas.
