@@ -1,4 +1,4 @@
-# 🧠 Autoevaluación - Unidad sobre Comunicación Serial Binaria
+# Actividad 6
 
 ## ¿Qué aprendiste en esta unidad?
 Aprendí a establecer comunicación serial binaria entre el micro:bit y p5.js 
