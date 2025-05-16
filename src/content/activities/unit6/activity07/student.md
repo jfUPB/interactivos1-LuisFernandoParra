@@ -1,31 +1,26 @@
-### Actividad 6 – Reflexión
+### Actividad 7
 
-**¿Qué aprendiste en esta unidad?**  
-Aprendí a implementar comunicación binaria entre micro:bit y p5.js.
+**Nivel de confianza (1 a 5):**
 
-**¿Qué fue lo más difícil? ¿Por qué?**  
-Lo más complicado fue interpretar y convertir correctamente los datos binarios, ya que exige mucha precisión y comprensión del formato.
+-  Puedo instalar las dependencias de un proyecto Node.js usando `npm install`: **5**
+-  Puedo ejecutar un servidor Node.js desde la terminal usando `npm start`: **5**
+-  Entiendo la estructura básica de un servidor Express con Socket.IO para manejar conexiones y eventos: **5**
+-  Puedo hacer que un sketch de p5.js se conecte a un servidor Socket.IO: **4**
+-  Puedo enviar datos desde un cliente p5.js al servidor usando `socket.emit()`: **5**
+-  Puedo recibir datos desde el servidor en un cliente p5.js usando `socket.on()`: **5**
+-  Entiendo el concepto de broadcast para enviar mensajes a otros clientes: **5**
+-  Me siento capaz de depurar problemas básicos de comunicación usando `console.log` en el servidor y el cliente: **5**
+-  Pude aplicar los conceptos modificando el caso de estudio para crear algo nuevo: **5**
 
-**¿Qué fue lo más fácil? ¿Por qué?**  
-Adaptar el código en p5.js de la actividad 4 fue sencillo, porque ya tenía experiencia previa y conocía la estructura.
+---
 
-**¿Cuánto tiempo dedicaste? ¿Fue suficiente?**  
-Invertí cinco sesiones. Ese tiempo me permitió comprender bien los temas y aplicarlos con éxito.
+### Reflexión
 
-**¿Qué podrías mejorar si repitieras la unidad?**  
-Me enfocaría en practicar más con ejemplos simples de datos binarios antes de avanzar al código completo.
+**¿Qué estrategia de aprendizaje te funcionó mejor en esta unidad?**  
+Me funcionó mejor **experimentar con modificaciones** en el código y probar cambios directamente en el navegador y en la terminal. Poder ver el efecto inmediato de cada ajuste ayudó a consolidar lo aprendido.
 
-**¿Cómo se conecta con tu perfil profesional?**  
-Este conocimiento me sirve para desarrollar instalaciones interactivas o videojuegos físicos que usen sensores reales.
+**¿Qué aspecto te resultó más desafiante?**  
+Lo más desafiante fue **establecer correctamente la comunicación entre p5.js y el servidor Socket.IO**, especialmente en los detalles del orden de carga de scripts y la correcta referencia a `socket` dentro de p5.js.
 
-**¿Qué te gustaría aprender en la siguiente unidad?**  
-Me interesaría explorar la comunicación en ambos sentidos con el micro:bit o integrar varios dispositivos simultáneamente.
+---
 
-**¿Cómo estuvo tu estado de ánimo? ¿Por qué?**  
-Estuve bien y motivado, aunque algunos errores durante el proceso fueron algo frustrantes.
-
-**¿Cómo estuvo tu motivación? ¿Por qué?**  
-Alta. Ver los resultados funcionando con binario me dio una gran satisfacción.
-
-**¿Qué tan satisfecho estás con tu desempeño? ¿Por qué?**  
-Estoy satisfecho porque logré comprender los conceptos principales y aplicar correctamente la comunicación binaria.
